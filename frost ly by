@@ -1,0 +1,192 @@
+_G.ClaimRewards = true -- Claims lobby rewards after matches
+_G.AutoPickups = true -- Collects event pickups/tokens in match
+_G.AutoSkip = true -- Automatically votes to skip waves
+_G.AutoDJ = true -- Automatically manages DJ Booth support
+_G.AutoMercenary = true -- Automatically uses Mercenary Base ability
+_G.AntiLag = false -- Reduces effects/animations to lower lag
+_G.AutoRestart = true -- Enables post-match handling; false leaves the result screen untouched
+_G.RejoinLoss = true -- On loss: true returns to lobby, false restarts and replays the saved strategy
+_G.AutoGatling = true -- Automatically uses Gatling Gun ability if equipped
+_G.TimeScale = false -- Enables the time scale settings below
+
+-- [[ WEBHOOK SETTINGS ]]
+_G.SendWebhook = false -- Sends match result notifications to webhook
+_G.Webhook = "YOUR-WEBHOOK-URL-HERE" -- Discord webhook URL
+
+-- [[ INITIALIZE LIBRARY ]]
+local TDS = loadstring(game:HttpGet("https://f.spacehub.wtf/Scripts/TDS/Recorders/Library.lua"))()
+
+-- [[ START STRATEGY ]]
+TDS:Loadout("Gatling Gun", "Hacker", "DJ Booth", "Trapper", "Mercenary Base")
+TDS:Mode("Frost")
+TDS:GameInfo("Lay By", {"Quarantine", "Glass", "ExplodingEnemies"})
+
+-- [[ TIME SCALE SETTINGS ]]
+if _G.TimeScale then
+    TDS:UnlockTimeScale()
+    TDS:TimeScale(2)
+end
+
+TDS:Place("Trapper", -3.20, 243.09, 220.85, true) -- 1
+TDS:Ready()
+
+-- [ Wave 2 ] --
+TDS:Place("Trapper", -3.21, 243.00, 214.19, true) -- 2
+
+-- [ Wave 3 ] --
+TDS:Upgrade(1)
+TDS:Upgrade(2)
+
+-- [ Wave 6 ] --
+TDS:Upgrade(1)
+TDS:Upgrade(2)
+TDS:SetOption(2, "Trap", "Landmine")
+
+-- [ Wave 9 ] --
+TDS:Place("Gatling Gun", 7.71, 245.90, 270.29, true) -- 3
+
+-- [ Wave 11 ] --
+TDS:Upgrade(3)
+
+-- [ Wave 13 ] --
+TDS:Upgrade(3)
+
+-- [ Wave 14 ] --
+TDS:Upgrade(1)
+
+-- [ Wave 15 ] --
+TDS:SetOption(1, "Trap", "Landmine")
+
+-- [ Wave 16 ] --
+TDS:Upgrade(3)
+TDS:Place("DJ Booth", 5.17, 243.00, 269.16, true) -- 4
+
+-- [ Wave 17 ] --
+TDS:SetOption(4, "Track", "Green")
+TDS:Upgrade(4)
+TDS:Upgrade(4)
+TDS:Upgrade(4)
+
+-- [ Wave 18 ] --
+TDS:Place("Hacker", 3.54, 243.00, 278.05, true) -- 5
+TDS:Upgrade(5)
+TDS:Upgrade(5)
+TDS:Upgrade(5)
+
+-- [ Wave 19 ] --
+TDS:Place("Hacker", 3.25, 243.00, 276.92, true) -- 6
+TDS:Upgrade(6)
+TDS:Upgrade(6)
+TDS:Upgrade(6)
+
+-- [ Wave 20 ] --
+TDS:Upgrade(1)
+TDS:SetOption(1, "Trap", "Bear Traps")
+TDS:Upgrade(2)
+TDS:Upgrade(2)
+TDS:SetOption(2, "Trap", "Bear Traps")
+
+-- [ Wave 21 ] --
+TDS:Upgrade(4)
+
+-- [ Wave 22 ] --
+TDS:Upgrade(3)
+
+-- [ Wave 23 ] --
+TDS:Upgrade(4)
+
+-- [ Wave 24 ] --
+TDS:Place("Trapper", 3.42, 243.00, 217.60, true) -- 7
+TDS:Upgrade(7)
+TDS:Upgrade(7)
+TDS:Upgrade(7)
+TDS:SetOption(7, "Trap", "Landmine")
+
+-- [ Wave 25 ] --
+TDS:Upgrade(7)
+TDS:SetOption(7, "Trap", "Bear Traps")
+TDS:Place("Trapper", 3.32, 243.00, 224.28, true) -- 8
+TDS:Upgrade(8)
+TDS:Upgrade(8)
+TDS:Upgrade(8)
+
+-- [ Wave 26 ] --
+TDS:Upgrade(8)
+TDS:SetOption(8, "Trap", "Bear Traps")
+
+-- [ Wave 27 ] --
+TDS:Upgrade(3)
+
+-- [ Wave 28 ] --
+TDS:Upgrade(6)
+TDS:Upgrade(5)
+
+-- [ Wave 31 ] --
+TDS:Upgrade(3)
+TDS:Place("Mercenary Base", 12.01, 243.00, 273.46, true) -- 9
+
+-- [ Wave 32 ] --
+TDS:Place("Mercenary Base", 12.06, 243.00, 276.57, true) -- 10
+TDS:Place("Mercenary Base", 11.77, 243.00, 279.63, true) -- 11
+TDS:Upgrade(9)
+TDS:Upgrade(9)
+TDS:Upgrade(9)
+TDS:Upgrade(9)
+TDS:Upgrade(9)
+TDS:SetOption(9, "Unit 1", "Field Medic")
+TDS:SetOption(9, "Unit 1", "Riot Guard")
+TDS:SetOption(9, "Unit 2", "Riot Guard")
+TDS:SetOption(9, "Unit 3", "Riot Guard")
+TDS:Upgrade(10)
+TDS:Upgrade(10)
+TDS:Upgrade(10)
+TDS:Upgrade(10)
+TDS:Upgrade(10)
+TDS:SetOption(10, "Unit 1", "Riot Guard")
+TDS:SetOption(10, "Unit 2", "Riot Guard")
+TDS:SetOption(10, "Unit 3", "Riot Guard")
+TDS:Upgrade(11)
+TDS:Upgrade(11)
+TDS:Upgrade(11)
+TDS:Upgrade(11)
+TDS:Upgrade(11)
+TDS:SetOption(11, "Unit 1", "Riot Guard")
+TDS:SetOption(11, "Unit 2", "Riot Guard")
+TDS:SetOption(11, "Unit 3", "Riot Guard")
+
+-- [ Wave 33 ] --
+TDS:Upgrade(6, 2)
+
+-- [ Wave 34 ] --
+TDS:SetOption(4, "Track", "Red")
+TDS:Upgrade(5)
+TDS:Ability(6, "Hologram Tower")
+TDS:Place("Trapper", 3.66, 243.00, 211.38, true) -- 12
+
+-- [ Wave 35 ] --
+TDS:Upgrade(12)
+TDS:Upgrade(12)
+TDS:Upgrade(12)
+TDS:Upgrade(12)
+TDS:SetOption(12, "Trap", "Bear Traps")
+
+-- [ Wave 36 ] --
+TDS:Place("Trapper", 3.22, 243.00, 220.89, true) -- 13
+TDS:Upgrade(13)
+TDS:Upgrade(13)
+TDS:Upgrade(13)
+TDS:Upgrade(13)
+TDS:SetOption(13, "Trap", "Bear Traps")
+TDS:Place("Trapper", -3.12, 243.00, 217.45, true) -- 14
+TDS:Upgrade(14)
+TDS:Upgrade(14)
+TDS:Upgrade(14)
+TDS:Upgrade(14)
+TDS:SetOption(14, "Trap", "Bear Traps")
+
+TDS:Upgrade(9)
+TDS:Upgrade(10)
+TDS:Upgrade(11)
+TDS:Ability(6, "Hologram Tower", {towerPosition = Vector3.new(-9.360724449157715, 242.99998474121094, 267.4354553222656), towerToClone = 3}, true)
+
+-- [[ END OF STRATEGY ]]
